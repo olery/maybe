@@ -57,6 +57,18 @@ This is disabled by default and the `Maybe` class itself doesn't rely on it and
 because it's not too pleasant for a library to implicitly patch built-in Ruby
 classes.
 
+## Installation
+
+Because both "maybe" and "ruby-maybe" were already taken this Gem is
+conveniently called "maybe.rb" on RubyGems, this means you'll need to install it
+as following:
+
+    gem install maybe.rb
+
+Or if you're using Bundler:
+
+    gem 'maybe.rb'
+
 ## Usage
 
 Load the Gem:

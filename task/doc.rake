@@ -1,6 +1,6 @@
 namespace :doc do
   desc 'Generates YARD documentation'
-  task :build => :generate do
+  task :build do
     sh 'yard'
   end
 end

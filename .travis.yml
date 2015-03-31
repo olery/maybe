@@ -1,0 +1,22 @@
+---
+language: ruby
+
+script: bundle exec rake
+
+install:
+  - bundle install --retry=3
+
+rvm:
+  - 1.9
+  - 2.0
+  - 2.1
+  - 2.2
+  - rbx-2
+  - jruby
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+
+cache: bundler

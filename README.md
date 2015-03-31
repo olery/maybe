@@ -1,5 +1,8 @@
 # Maybe.rb
 
+> I had a grey horse called maybe, we could not decide what to call her and the
+> US exchange student kept saying "ahh maybe" when we suggested names.
+
 A gem providing a very simple Maybe monad for Ruby, minus all the other
 functional programming features often seen in other libraries (such as `bind`).
 

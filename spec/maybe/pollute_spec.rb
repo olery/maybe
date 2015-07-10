@@ -17,6 +17,13 @@ describe Object do
         maybe.should be_an_instance_of(Maybe)
         maybe.unwrap.should == 10
       end
+
+      it 'passes the block to Maybe#maybe' do
+        maybe = ['10'].maybe(0) { |v| v.to_i }
+
+        maybe.should be_an_instance_of(Maybe)
+        maybe.unwrap.should == 10
+      end
     end
 
     describe 'with a block' do

@@ -9,13 +9,13 @@ class Object
   #
   # @see [Maybe#get]
   #
-  def maybe(*args)
+  def maybe(*args, &block)
     retval = Maybe.new(self)
 
     if !args.empty?
-      retval = retval.maybe(*args)
+      retval = retval.maybe(*args, &block)
     elsif block_given?
-      retval = retval.maybe(&Proc.new)
+      retval = retval.maybe(&block)
     end
 
     return retval

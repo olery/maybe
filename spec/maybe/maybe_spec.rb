@@ -37,6 +37,24 @@ describe Maybe do
         end
       end
 
+      describe 'with a block' do
+        it 'yields the block when the argument value is not nil' do
+          initial = described_class.new(:number => '10')
+          maybe   = initial.maybe(:number) { |val| val.to_i }
+
+          maybe.should be_an_instance_of(described_class)
+          maybe.unwrap.should == 10
+        end
+
+        it 'does not yield the block when the argument value is nil' do
+          initial = described_class.new(:number => '10')
+          maybe   = initial.maybe(:numberx) { |val| val.to_i }
+
+          maybe.should be_an_instance_of(described_class)
+          maybe.unwrap.should == nil
+        end
+      end
+
       it 'returns self when the wrapped and returned values are nil' do
         initial = described_class.new(nil)
 

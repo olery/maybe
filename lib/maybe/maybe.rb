@@ -96,6 +96,16 @@ class Maybe
   #
   #     maybe[0]['foo'].or(20)
   #
+  # If both arguments and a block are given the supplied block is called with
+  # the value returned by the `#[]` method of the wrapped object. For example:
+  #
+  #     maybe = Maybe.new(:number => '10')
+  #
+  #     maybe.maybe(:number) { |number| number.to_i } # => 10
+  #
+  # The block in this case is _only_ called when the `#[]` method returns a non
+  # nil value.
+  #
   # @param [Array] args
   #
   # @yieldparam [Mixed] wrapped The wrapped value
@@ -105,6 +115,10 @@ class Maybe
   def maybe(*args)
     if !args.empty?
       value = brackets? ? @wrapped[*args] : nil
+
+      if block_given? and value
+        value = yield value
+      end
     elsif @wrapped
       value = yield @wrapped
     end

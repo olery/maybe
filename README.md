@@ -77,7 +77,7 @@ Load the Gem:
 
 Optionally pollute `Object` so you can just call `maybe` on any object:
 
-    require 'maybe/polluate'
+    require 'maybe/pollute'
 
 Wrap a value using the `Maybe` class directly:
 
